@@ -1,0 +1,18 @@
+.shell {
+    margin: 0;
+    padding: 0;
+}
+
+.shell-header {
+    max-height: 100px;
+    position: fixed;
+    width: 100%;
+}
+
+.shell-content {
+    min-height: 100px;
+}
+
+body {
+    margin: 0;
+}

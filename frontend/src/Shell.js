@@ -10,9 +10,15 @@ const Shell = (props) => {
 
     return (
         <div className='shell'>
-            <Header />
-            {children}
-            <Footer />
+            <div className="shell-header">
+                <Header/>
+            </div>
+            <div className="shell-content">
+                {children}
+            </div>
+            <div className="shell-footer">
+                <Footer/>
+            </div>
         </div>
     );
 };
