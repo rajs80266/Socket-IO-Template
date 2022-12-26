@@ -1,6 +1,6 @@
 import React from "react";
 import { SocialIcon } from 'react-social-icons';
-import { facebookUrl, instagramUrl } from "../../constants/links";
+import { facebookUrl, instagramUrl, whatsappUrl } from "../../constants/links";
 import "./style.css"
 
 const Footer = () => {
@@ -9,6 +9,7 @@ const Footer = () => {
             <div className="social-icons">
                 <SocialIcon url={instagramUrl} />
                 <SocialIcon url={facebookUrl} />
+                <SocialIcon url={whatsappUrl} />
             </div>
         </div>
     )

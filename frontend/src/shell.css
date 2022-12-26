@@ -13,6 +13,11 @@
     min-height: 100px;
 }
 
+.shell-footer {
+    position: relative;
+    top: 130px;
+}
+
 body {
     margin: 0;
 }
