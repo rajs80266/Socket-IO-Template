@@ -4,7 +4,7 @@ export const addDocument = async (collectionRef, document) => {
     await collectionRef.doc(id).update({id, ...document});
 };
 
-export const updateDocument = async (collectionRef, id) => {
+export const updateDocument = async (collectionRef, id, document) => {
     await collectionRef.doc(id).update({id, ...document});
 };
 
@@ -42,4 +42,10 @@ export const getDocumentById = async (collectionRef, id) => {
 
 export const deleteDocument = async (collectionRef, id) => {
     await collectionRef.doc(id).delete();
+};
+
+export const removeFromBucket = async (storageRef, url) => {
+    const pictureRef = storageRef.refFromURL(url);
+    await pictureRef.delete();
+    console.log(url);
 };
