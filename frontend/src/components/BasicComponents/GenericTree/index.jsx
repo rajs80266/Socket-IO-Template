@@ -22,11 +22,6 @@ function GenericTree(props) {
   const [expandedNodes, setExpandedNodes] = useState([]);
 
   useEffect(() => {
-    console.log(leafSelectedIds);
-    props.onSelectedIdsChange(leafSelectedIds, selectedIds);
-  }, [leafSelectedIds]);
-
-  useEffect(() => {
     (async () => {
       const [updatedTreeData, subTreeLeafSelectedIds, selectedId] = await updateTreeData(
         selectedIds,
@@ -48,6 +43,7 @@ function GenericTree(props) {
 
   return (
     <div className="treeComponent" style={props.style}>
+      {props.editMode && <button onClick={() => { props.updateSelectedIds(leafSelectedIds); }}>Update Visibilities</button>}
       {
         props.showExpandCollapse ? (
           <ExpandCollapseIcons
@@ -81,7 +77,7 @@ function GenericTree(props) {
               onClick(clickedItemClassName, node, expandedNodes, setIsExpandable, setIsCollapsable, setExpandedNodes, props.onNodeClick);
             },
             title: (
-              props.allowMultiple || !node.children
+              (props.allowMultiple || !node.children) && props.selectionMode
                 ? (
                   <>
                     <input
@@ -92,9 +88,11 @@ function GenericTree(props) {
                       indeterminate={node.selectionType === 0.5}
                       onChange={() => onNodeSelectionChange(node, selectedIds, treeDataFormat, setSelectedIds, props.allowMultiple)}
                     />
-                    {props.selectedNodeId === node.id ? <b>{node.label}</b> : node.label}
+                    <span className="checkbox-node-title">
+                      {props.selectedNodeId === node.id ? <b>{node.label}</b> : node.label}
+                    </span>
                   </>
-                ) : <div className="nodeTitle">{node.label}</div>
+                ) : <div className="node-title">{props.selectedNodeId === node.id ? <b>{node.label}</b> : node.label}</div>
             ),
           })
         }

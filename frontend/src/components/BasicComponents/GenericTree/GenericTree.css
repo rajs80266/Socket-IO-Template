@@ -1,11 +1,17 @@
-.nodeTitle {
+.checkbox-node-title {
     position: relative;
-    top: 7px;
+    top: -1px;
+}
+
+.node-title {
+    position: relative;
+    top: 1px;
 }
 
 .iconHover {
     position: relative;
     left: 5px;
+    top: 2px;
     color: rgb(0, 136, 169);
 }
 

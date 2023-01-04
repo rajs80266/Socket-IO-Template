@@ -10,9 +10,12 @@ export const updateDocument = async (collectionRef, id, document) => {
 
 export const getDocuments = async (collectionRef, filters, offset, limit) => {
     let filteredCollection = collectionRef;
-    Object.keys(filters).forEach(async key => {
-        filteredCollection = await filteredCollection.where(key, '==', filters[key]);
-    });
+    const filteredKeys = Object.keys(filters);
+    for (let i = 0; i < filteredKeys.length; i++) {
+        const key = filteredKeys[i];
+        filteredCollection = await filteredCollection.where(key, filters[key].operator, filters[key].value);
+    };
+
     filteredCollection = filteredCollection.orderBy('createdOn', 'desc');
 
     if (offset) {

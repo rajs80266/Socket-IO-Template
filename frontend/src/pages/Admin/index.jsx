@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
-import './style.css';
+import { Route, Switch } from "react-router-dom";
 
 const customStyles = {
     content: {
@@ -18,7 +18,7 @@ const Admin = () => {
     const [password, setPassword] = useState('');
 
     useEffect(() => {
-        if (password === "password") {
+        if (password === "k-collections") {
             setIsAuthenticated(true);
         }
     }, [password]);
@@ -43,8 +43,13 @@ const Admin = () => {
     }
 
     return (
-        <div>
-        </div>
+        <Switch>
+          {/* <Route
+            exact
+            path="/admin/manageProducts"
+            render={() => <ManageProducts />}
+          /> */}
+        </Switch>
     );
 };
 
