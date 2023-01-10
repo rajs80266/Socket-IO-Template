@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import SortableTree from 'react-sortable-tree';
 import FileExplorerTheme from 'react-sortable-tree-theme-file-explorer';
-import IconHover from './IconHover';
+import IconHover from '../IconHover';
 import { updateTreeData } from './utils';
 import { onClick, onNodeSelectionChange } from './treeActions';
 import ExpandCollapseIcons from './ExpandCollapseIcons';
