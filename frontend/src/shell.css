@@ -10,7 +10,10 @@
 }
 
 .shell-content {
+    position: relative;
+    top: 100px;
     min-height: 100px;
+    padding: 5px;
 }
 
 .shell-footer {
@@ -20,4 +23,9 @@
 
 body {
     margin: 0;
+}
+
+.icons {
+    position: relative;
+    top: 2px;
 }
